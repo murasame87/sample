@@ -1,9 +1,14 @@
 'use strict';
 
-const input = document.querySelector('input');
-const p = document.querySelector('p');
+const select = document.querySelector('select');
+const tdList = document.querySelectorAll('td');
 
-input.addEventListener('change', () => {
-  console.log('A');
-  p.textContent = 'change!';
+const notes = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#'];
+
+select.addEventListener('change', () => {
+  let index = notes.indexOf(select.value);
+
+  for (const td of tdList) {
+    td.textContent = notes[index++];
+  }
 });
